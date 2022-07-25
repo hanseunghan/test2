@@ -1,0 +1,1 @@
+"./device/device.obj" "./device/f2838x_codestartbranch.obj" "./source/L0/bd6tx_drv0CPU2.obj" "./source/L1/bd6tx_ipcCPU2.obj" "./source/L1/bd6tx_utilCPU2.obj" "./source/L2/bd6tx_cvCPU2.obj" "./source/L2/taskCPU2.obj" "./source/mainCPU2.obj" "../2838x_FLASH_lnk_cpu2.cmd" "C:/ti/c2000/C2000Ware_4_00_00_00/driverlib/f2838x/driverlib/ccs/Debug/driverlib.lib" -llibc.a 

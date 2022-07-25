@@ -1,0 +1,433 @@
+******************************************************************************
+             TMS320C2000 Linker PC v21.6.0                     
+******************************************************************************
+>> Linked Tue Apr  5 18:10:06 2022
+
+OUTPUT FILE NAME:   <BD6B0_CPU2.out>
+ENTRY POINT SYMBOL: "code_start"  address: 00080000
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  BOOT_RSVD             00000002   000001a7  00000000  000001a7  RWIX
+  RAMM0                 000001a9   00000257  00000000  00000257  RWIX
+  RAMM1                 00000400   000003f8  00000100  000002f8  RWIX
+  RAMLS0                00008000   00000800  00000129  000006d7  RWIX
+  RAMLS1                00008800   00000800  00000000  00000800  RWIX
+  RAMLS2                00009000   00000800  00000068  00000798  RWIX
+  RAMLS3                00009800   00000800  00000000  00000800  RWIX
+  RAMLS4                0000a000   00000800  00000000  00000800  RWIX
+  RAMLS5                0000a800   00000800  00000000  00000800  RWIX
+  RAMLS6                0000b000   00000800  00000000  00000800  RWIX
+  RAMLS7                0000b800   00000800  00000000  00000800  RWIX
+  RAMD0                 0000c000   00000800  00000000  00000800  RWIX
+  RAMD1                 0000c800   00000800  00000000  00000800  RWIX
+  RAMGS0                0000d000   00001000  00000000  00001000  RWIX
+  RAMGS1                0000e000   00001000  00000000  00001000  RWIX
+  RAMGS2                0000f000   00001000  00000000  00001000  RWIX
+  RAMGS3                00010000   00001000  00000000  00001000  RWIX
+  RAMGS4                00011000   00001000  00000000  00001000  RWIX
+  RAMGS5                00012000   00001000  00000000  00001000  RWIX
+  RAMGS6                00013000   00001000  00000000  00001000  RWIX
+  RAMGS7                00014000   00001000  00000000  00001000  RWIX
+  RAMGS8                00015000   00001000  00000000  00001000  RWIX
+  RAMGS9                00016000   00001000  00000000  00001000  RWIX
+  RAMGS10               00017000   00001000  00000000  00001000  RWIX
+  RAMGS11               00018000   00001000  00000000  00001000  RWIX
+  RAMGS12               00019000   00001000  00000000  00001000  RWIX
+  RAMGS13               0001a000   00001000  00000000  00001000  RWIX
+  RAMGS14               0001b000   00001000  00000000  00001000  RWIX
+  RAMGS15               0001c000   00000ff8  00000000  00000ff8  RWIX
+  CMTOCPURAM            00038000   00000800  000007c8  00000038  RWIX
+  CPUTOCMRAM            00039000   00000800  000007c8  00000038  RWIX
+  CPU1TOCPU2RAM         0003a000   00000800  000007c8  00000038  RWIX
+  CPU2TOCPU1RAM         0003b000   00000800  000007c8  00000038  RWIX
+  BEGIN                 00080000   00000002  00000002  00000000  RWIX
+  FLASH0                00080002   00001ffe  00000000  00001ffe  RWIX
+  FLASH1                00082000   00002000  00000571  00001a8f  RWIX
+  FLASH2                00084000   00002000  00000000  00002000  RWIX
+  FLASH3                00086000   00002000  00000129  00001ed7  RWIX
+  FLASH4                00088000   00008000  00000000  00008000  RWIX
+  FLASH5                00090000   00008000  0000016f  00007e91  RWIX
+  FLASH6                00098000   00008000  00000000  00008000  RWIX
+  FLASH7                000a0000   00008000  00000000  00008000  RWIX
+  FLASH8                000a8000   00008000  00000000  00008000  RWIX
+  FLASH9                000b0000   00008000  00000000  00008000  RWIX
+  FLASH10               000b8000   00002000  00000000  00002000  RWIX
+  FLASH11               000ba000   00002000  00000000  00002000  RWIX
+  FLASH12               000bc000   00002000  00000000  00002000  RWIX
+  FLASH13               000be000   00001ff0  00000000  00001ff0  RWIX
+  RESET                 003fffc0   00000002  00000000  00000002  RWIX
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+codestart 
+*          0    00080000    00000002     
+                  00080000    00000002     f2838x_codestartbranch.obj (codestart)
+
+.cinit     0    00082560    00000014     
+                  00082560    0000000a     (.cinit..data.load) [load image, compression = lzss]
+                  0008256a    00000004     (__TI_handler_table)
+                  0008256e    00000002     --HOLE-- [fill = 0]
+                  00082570    00000004     (__TI_cinit_table)
+
+.reset     0    003fffc0    00000000     DSECT
+
+.stack     0    00000400    00000100     UNINITIALIZED
+                  00000400    00000100     --HOLE--
+
+.init_array 
+*          0    00082000    00000000     UNINITIALIZED
+
+.data      0    00009000    00000068     UNINITIALIZED
+                  00009000    00000028     bd6tx_utilCPU2.obj (.data:u32LastTime$1$2)
+                  00009028    00000028     bd6tx_utilCPU2.obj (.data:u32LastTime$3$2)
+                  00009050    0000000a     taskCPU2.obj (.data)
+                  0000905a    00000006     rts2800_fpu64_eabi.lib : exit.c.obj (.data)
+                  00009060    00000005     bd6tx_ipcCPU2.obj (.data)
+                  00009065    00000001     --HOLE--
+                  00009066    00000002     rts2800_fpu64_eabi.lib : _lock.c.obj (.data:_lock)
+
+MSGRAM_CM_TO_CPU 
+*          0    00038000    000007c8     UNINITIALIZED
+                  00038000    00000708     bd6tx_cvCPU2.obj (MSGRAM_CM_TO_CPU)
+                  00038708    00000038     --HOLE--
+                  00038740    00000088     driverlib.lib : ipc.obj (MSGRAM_CM_TO_CPU)
+
+MSGRAM_CPU_TO_CM 
+*          0    00039000    000007c8     UNINITIALIZED
+                  00039000    00000708     bd6tx_cvCPU2.obj (MSGRAM_CPU_TO_CM)
+                  00039708    00000038     --HOLE--
+                  00039740    00000088     driverlib.lib : ipc.obj (MSGRAM_CPU_TO_CM)
+
+MSGRAM_CPU1_TO_CPU2 
+*          0    0003a000    000007c8     UNINITIALIZED
+                  0003a000    00000708     bd6tx_cvCPU2.obj (MSGRAM_CPU1_TO_CPU2)
+                  0003a708    00000038     --HOLE--
+                  0003a740    00000088     driverlib.lib : ipc.obj (MSGRAM_CPU1_TO_CPU2)
+
+MSGRAM_CPU2_TO_CPU1 
+*          0    0003b000    000007c8     UNINITIALIZED
+                  0003b000    00000708     bd6tx_cvCPU2.obj (MSGRAM_CPU2_TO_CPU1)
+                  0003b708    00000038     --HOLE--
+                  0003b740    00000088     driverlib.lib : ipc.obj (MSGRAM_CPU2_TO_CPU1)
+
+.TI.ramfunc 
+*          0    00086000    00000129     RUN ADDR = 00008000
+                  00086000    0000003f     driverlib.lib : flash.obj (.TI.ramfunc:Flash_initModule)
+                  0008603f    0000002d                   : flash.obj (.TI.ramfunc:Flash_setBankPowerMode)
+                  0008606c    00000022                   : flash.obj (.TI.ramfunc:Flash_setWaitstates)
+                  0008608e    0000001e                   : flash.obj (.TI.ramfunc:Flash_setPumpPowerMode)
+                  000860ac    0000001a                   : flash.obj (.TI.ramfunc:Flash_disableCache)
+                  000860c6    0000001a                   : flash.obj (.TI.ramfunc:Flash_disablePrefetch)
+                  000860e0    00000019                   : flash.obj (.TI.ramfunc:Flash_enableCache)
+                  000860f9    00000019                   : flash.obj (.TI.ramfunc:Flash_enablePrefetch)
+                  00086112    00000017                   : flash.obj (.TI.ramfunc:Flash_enableECC)
+
+.const     0    00090000    0000016f     
+                  00090000    00000098     driverlib.lib : flash.obj (.const:.string)
+                  00090098    00000088                   : ipc.obj (.const:IPC_Instance)
+                  00090120    0000004f                   : cputimer.obj (.const:.string)
+
+.text      0    00082000    0000055d     
+                  00082000    0000012d     device.obj (.text:Device_enableAllPeripherals)
+                  0008212d    000000c5     taskCPU2.obj (.text:task_cpu2)
+                  000821f2    00000059     bd6tx_drv0CPU2.obj (.text:InitCPUTimer012)
+                  0008224b    0000004f     bd6tx_drv0CPU2.obj (.text:InitDRV)
+                  0008229a    0000003d     driverlib.lib : interrupt.obj (.text:Interrupt_initModule)
+                  000822d7    00000034                   : interrupt.obj (.text:Interrupt_enable)
+                  0008230b    00000031     rts2800_fpu64_eabi.lib : copy_decompress_lzss.c.obj (.text:decompress:lzss)
+                  0008233c    0000002b                            : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit)
+                  00082367    00000029                            : exit.c.obj (.text)
+                  00082390    00000026     bd6tx_utilCPU2.obj (.text:usGetElapse)
+                  000823b6    00000023     mainCPU2.obj (.text:main)
+                  000823d9    00000022     bd6tx_utilCPU2.obj (.text:nsGetElapse)
+                  000823fb    00000021     device.obj (.text:Device_init)
+                  0008241c    0000001e     device.obj (.text:Device_initGPIO)
+                  0008243a    0000001e     driverlib.lib : interrupt.obj (.text:Interrupt_initVectorTable)
+                  00082458    0000001d     rts2800_fpu64_eabi.lib : memcpy.c.obj (.text)
+                  00082475    0000001b     device.obj (.text:Device_enableUnbondedGPIOPullups)
+                  00082490    0000001a     driverlib.lib : cputimer.obj (.text:CPUTimer_isBaseValid)
+                  000824aa    00000019     rts2800_fpu64_eabi.lib : boot28.asm.obj (.text)
+                  000824c3    00000013     driverlib.lib : cputimer.obj (.text:CPUTimer_setEmulationMode)
+                  000824d6    00000012     bd6tx_cvCPU2.obj (.text:InitCV)
+                  000824e8    00000010     driverlib.lib : flash.obj (.text:Flash_isCtrlBaseValid)
+                  000824f8    00000010                   : flash.obj (.text:Flash_isECCBaseValid)
+                  00082508    0000000e                   : interrupt.obj (.text:Interrupt_defaultHandler)
+                  00082516    0000000d                   : interrupt.obj (.text:Interrupt_disableMaster)
+                  00082523    0000000d                   : interrupt.obj (.text:Interrupt_enableMaster)
+                  00082530    0000000c     rts2800_fpu64_eabi.lib : args_main.c.obj (.text)
+                  0008253c    00000008                            : copy_decompress_none.c.obj (.text:decompress:none)
+                  00082544    00000008     f2838x_codestartbranch.obj (.text)
+                  0008254c    00000006     rts2800_fpu64_eabi.lib : memset.c.obj (.text)
+                  00082552    00000003     device.obj (.text:__error__)
+                  00082555    00000002     driverlib.lib : interrupt.obj (.text:Interrupt_illegalOperationHandler)
+                  00082557    00000002                   : interrupt.obj (.text:Interrupt_nmiHandler)
+                  00082559    00000002     rts2800_fpu64_eabi.lib : pre_init.c.obj (.text)
+                  0008255b    00000001                            : _lock.c.obj (.text)
+                  0008255c    00000001                            : startup.c.obj (.text)
+
+MODULE SUMMARY
+
+       Module                       code   ro data   rw data
+       ------                       ----   -------   -------
+    .\device\
+       device.obj                   394    0         0      
+       f2838x_codestartbranch.obj   10     0         0      
+    +--+----------------------------+------+---------+---------+
+       Total:                       404    0         0      
+                                                            
+    .\source\
+       mainCPU2.obj                 35     0         0      
+    +--+----------------------------+------+---------+---------+
+       Total:                       35     0         0      
+                                                            
+    .\source\L0\
+       bd6tx_drv0CPU2.obj           168    0         0      
+    +--+----------------------------+------+---------+---------+
+       Total:                       168    0         0      
+                                                            
+    .\source\L1\
+       bd6tx_utilCPU2.obj           72     0         80     
+       bd6tx_ipcCPU2.obj            0      0         5      
+    +--+----------------------------+------+---------+---------+
+       Total:                       72     0         85     
+                                                            
+    .\source\L2\
+       bd6tx_cvCPU2.obj             18     0         7200   
+       taskCPU2.obj                 197    0         10     
+    +--+----------------------------+------+---------+---------+
+       Total:                       215    0         7210   
+                                                            
+    C:/ti/c2000/C2000Ware_4_00_00_00/driverlib/f2838x/driverlib/ccs/Debug/driverlib.lib
+       flash.obj                    626    152       0      
+       ipc.obj                      0      136       544    
+       interrupt.obj                187    0         0      
+       cputimer.obj                 45     79        0      
+    +--+----------------------------+------+---------+---------+
+       Total:                       858    367       544    
+                                                            
+    C:\ti\ccs1100\ccs\tools\compiler\ti-cgt-c2000_21.6.0.LTS\lib\rts2800_fpu64_eabi.lib
+       copy_decompress_lzss.c.obj   49     0         0      
+       exit.c.obj                   41     0         6      
+       autoinit.c.obj               43     0         0      
+       memcpy.c.obj                 29     0         0      
+       boot28.asm.obj               25     0         0      
+       args_main.c.obj              12     0         0      
+       copy_decompress_none.c.obj   8      0         0      
+       memset.c.obj                 6      0         0      
+       _lock.c.obj                  1      0         2      
+       pre_init.c.obj               2      0         0      
+       startup.c.obj                1      0         0      
+    +--+----------------------------+------+---------+---------+
+       Total:                       217    0         8      
+                                                            
+       Stack:                       0      0         256    
+       Linker Generated:            0      18        0      
+    +--+----------------------------+------+---------+---------+
+       Grand Total:                 1969   385       8103   
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00082570 records: 1, size/record: 4, table size: 4
+	.data: load addr=00082560, load size=0000000a bytes, run addr=00009000, run size=00000068 bytes, compression=lzss
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 0008256a records: 2, size/record: 2, table size: 4
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+
+
+GLOBAL DATA SYMBOLS: SORTED BY DATA PAGE
+
+address     data page           name
+--------    ----------------    ----
+00000400      10 (00000400)     __stack
+
+00009050     241 (00009040)     mIntervalTime
+00009051     241 (00009040)     mTakeTime
+00009052     241 (00009040)     u32TstCnt
+00009054     241 (00009040)     u32TstSRam_C2Read
+00009056     241 (00009040)     u32TstTemp0
+0000905a     241 (00009040)     __TI_enable_exit_profile_output
+0000905c     241 (00009040)     __TI_cleanup_ptr
+0000905e     241 (00009040)     __TI_dtors_ptr
+00009060     241 (00009040)     u16Temp0
+00009066     241 (00009040)     _lock
+
+00038000     e00 (00038000)     u16rCPU2rwCM
+
+00038740     e1d (00038740)     IPC_CPU_To_CM_GetBuffer
+
+00039000     e40 (00039000)     u16rwCPU2rCM
+
+00039740     e5d (00039740)     IPC_CPU_To_CM_PutBuffer
+
+0003a000     e80 (0003a000)     u16rCPU2rwCPU1
+
+0003a740     e9d (0003a740)     IPC_CPU1_To_CPU2_PutBuffer
+
+0003b000     ec0 (0003b000)     u16rwCPU2rCPU1
+
+0003b740     edd (0003b740)     IPC_CPU1_To_CPU2_GetBuffer
+
+00090098    2402 (00090080)     IPC_Instance
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+page  address   name                            
+----  -------   ----                            
+0     00082367  C$$EXIT                         
+0     000824c3  CPUTimer_setEmulationMode       
+0     00082000  Device_enableAllPeripherals     
+0     00082475  Device_enableUnbondedGPIOPullups
+0     000823fb  Device_init                     
+0     0008241c  Device_initGPIO                 
+0     00008000  Flash_initModule                
+0     0003b740  IPC_CPU1_To_CPU2_GetBuffer      
+0     0003a740  IPC_CPU1_To_CPU2_PutBuffer      
+0     00038740  IPC_CPU_To_CM_GetBuffer         
+0     00039740  IPC_CPU_To_CM_PutBuffer         
+0     00090098  IPC_Instance                    
+0     000821f2  InitCPUTimer012                 
+0     000824d6  InitCV                          
+0     0008224b  InitDRV                         
+0     000822d7  Interrupt_enable                
+0     0008229a  Interrupt_initModule            
+0     0008243a  Interrupt_initVectorTable       
+0     00086129  RamfuncsLoadEnd                 
+abs   00000129  RamfuncsLoadSize                
+0     00086000  RamfuncsLoadStart               
+0     00008129  RamfuncsRunEnd                  
+abs   00000129  RamfuncsRunSize                 
+0     00008000  RamfuncsRunStart                
+0     00082570  __TI_CINIT_Base                 
+0     00082574  __TI_CINIT_Limit                
+0     00082574  __TI_CINIT_Warm                 
+0     0008256a  __TI_Handler_Table_Base         
+0     0008256e  __TI_Handler_Table_Limit        
+0     00000500  __TI_STACK_END                  
+abs   00000100  __TI_STACK_SIZE                 
+0     0008233c  __TI_auto_init_nobinit_nopinit  
+0     0000905c  __TI_cleanup_ptr                
+0     0008230b  __TI_decompress_lzss            
+0     0008253c  __TI_decompress_none            
+0     0000905e  __TI_dtors_ptr                  
+0     0000905a  __TI_enable_exit_profile_output 
+abs   ffffffff  __TI_pprof_out_hndl             
+abs   ffffffff  __TI_prof_data_size             
+abs   ffffffff  __TI_prof_data_start            
+n/a   UNDEFED   __c_args__                      
+0     00082552  __error__                       
+0     00000400  __stack                         
+0     00082530  _args_main                      
+0     000824aa  _c_int00                        
+0     00009066  _lock                           
+0     0008255b  _nop                            
+0     0008255c  _system_post_cinit              
+0     00082559  _system_pre_init                
+0     00082367  abort                           
+0     00080000  code_start                      
+0     00082369  exit                            
+0     00009050  mIntervalTime                   
+0     00009051  mTakeTime                       
+0     000823b6  main                            
+0     00082458  memcpy                          
+0     0008254c  memset                          
+0     000823d9  nsGetElapse                     
+0     0008212d  task_cpu2                       
+0     00009060  u16Temp0                        
+0     00038000  u16rCPU2rwCM                    
+0     0003a000  u16rCPU2rwCPU1                  
+0     00039000  u16rwCPU2rCM                    
+0     0003b000  u16rwCPU2rCPU1                  
+0     00009052  u32TstCnt                       
+0     00009054  u32TstSRam_C2Read               
+0     00009056  u32TstTemp0                     
+0     00082390  usGetElapse                     
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+page  address   name                            
+----  -------   ----                            
+0     00000400  __stack                         
+0     00000500  __TI_STACK_END                  
+0     00008000  Flash_initModule                
+0     00008000  RamfuncsRunStart                
+0     00008129  RamfuncsRunEnd                  
+0     00009050  mIntervalTime                   
+0     00009051  mTakeTime                       
+0     00009052  u32TstCnt                       
+0     00009054  u32TstSRam_C2Read               
+0     00009056  u32TstTemp0                     
+0     0000905a  __TI_enable_exit_profile_output 
+0     0000905c  __TI_cleanup_ptr                
+0     0000905e  __TI_dtors_ptr                  
+0     00009060  u16Temp0                        
+0     00009066  _lock                           
+0     00038000  u16rCPU2rwCM                    
+0     00038740  IPC_CPU_To_CM_GetBuffer         
+0     00039000  u16rwCPU2rCM                    
+0     00039740  IPC_CPU_To_CM_PutBuffer         
+0     0003a000  u16rCPU2rwCPU1                  
+0     0003a740  IPC_CPU1_To_CPU2_PutBuffer      
+0     0003b000  u16rwCPU2rCPU1                  
+0     0003b740  IPC_CPU1_To_CPU2_GetBuffer      
+0     00080000  code_start                      
+0     00082000  Device_enableAllPeripherals     
+0     0008212d  task_cpu2                       
+0     000821f2  InitCPUTimer012                 
+0     0008224b  InitDRV                         
+0     0008229a  Interrupt_initModule            
+0     000822d7  Interrupt_enable                
+0     0008230b  __TI_decompress_lzss            
+0     0008233c  __TI_auto_init_nobinit_nopinit  
+0     00082367  C$$EXIT                         
+0     00082367  abort                           
+0     00082369  exit                            
+0     00082390  usGetElapse                     
+0     000823b6  main                            
+0     000823d9  nsGetElapse                     
+0     000823fb  Device_init                     
+0     0008241c  Device_initGPIO                 
+0     0008243a  Interrupt_initVectorTable       
+0     00082458  memcpy                          
+0     00082475  Device_enableUnbondedGPIOPullups
+0     000824aa  _c_int00                        
+0     000824c3  CPUTimer_setEmulationMode       
+0     000824d6  InitCV                          
+0     00082530  _args_main                      
+0     0008253c  __TI_decompress_none            
+0     0008254c  memset                          
+0     00082552  __error__                       
+0     00082559  _system_pre_init                
+0     0008255b  _nop                            
+0     0008255c  _system_post_cinit              
+0     0008256a  __TI_Handler_Table_Base         
+0     0008256e  __TI_Handler_Table_Limit        
+0     00082570  __TI_CINIT_Base                 
+0     00082574  __TI_CINIT_Limit                
+0     00082574  __TI_CINIT_Warm                 
+0     00086000  RamfuncsLoadStart               
+0     00086129  RamfuncsLoadEnd                 
+0     00090098  IPC_Instance                    
+abs   00000100  __TI_STACK_SIZE                 
+abs   00000129  RamfuncsLoadSize                
+abs   00000129  RamfuncsRunSize                 
+abs   ffffffff  __TI_pprof_out_hndl             
+abs   ffffffff  __TI_prof_data_size             
+abs   ffffffff  __TI_prof_data_start            
+n/a   UNDEFED   __c_args__                      
+
+[68 symbols]

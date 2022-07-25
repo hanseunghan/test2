@@ -1,0 +1,345 @@
+******************************************************************************
+                  TI ARM Linker PC v20.2.5                     
+******************************************************************************
+>> Linked Thu Jan  6 19:34:18 2022
+
+OUTPUT FILE NAME:   <BD6Tx_CM.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00200669
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  CMBANK0_RESETISR      00200000   00000008  00000006  00000002  RWIX
+  CMBANK0_SECTOR0       00200008   00003ff8  00000746  000038b2  RWIX
+  CMBANK0_SECTOR1       00204000   00004000  00000000  00004000  RWIX
+  CMBANK0_SECTOR2       00208000   00004000  00000000  00004000  RWIX
+  CMBANK0_SECTOR3       0020c000   00004000  00000000  00004000  RWIX
+  CMBANK0_SECTOR4       00210000   00010000  00000000  00010000  RWIX
+  CMBANK0_SECTOR5       00220000   00010000  00000000  00010000  RWIX
+  CMBANK0_SECTOR6       00230000   00010000  00000000  00010000  RWIX
+  CMBANK0_SECTOR7       00240000   00010000  00000000  00010000  RWIX
+  CMBANK0_SECTOR8       00250000   00010000  00000000  00010000  RWIX
+  CMBANK0_SECTOR9       00260000   00010000  00000000  00010000  RWIX
+  CMBANK0_SECTOR10      00270000   00004000  00000000  00004000  RWIX
+  CMBANK0_SECTOR11      00274000   00004000  00000000  00004000  RWIX
+  CMBANK0_SECTOR12      00278000   00004000  00000000  00004000  RWIX
+  CMBANK0_SECTOR13      0027c000   00004000  00000000  00004000  RWIX
+  C1RAM                 1fffc000   00002000  00000200  00001e00  RWIX
+  C0RAM                 1fffe000   00002000  00000172  00001e8e  RWIX
+  BOOT_RSVD             20000000   00000800  00000000  00000800  RWIX
+  S0RAM                 20000800   00003800  00000000  00003800  RWIX
+  S1RAM                 20004000   00004000  00000000  00004000  RWIX
+  S2RAM                 20008000   00004000  00000000  00004000  RWIX
+  S3RAM                 2000c000   00004000  00000014  00003fec  RWIX
+  E0RAM                 20010000   00004000  00000000  00004000  RWIX
+  CPU1TOCMMSGRAM0       20080000   00001000  00000f20  000000e0  RWIX
+  CMTOCPU1MSGRAM0       20082000   00001000  00000f20  000000e0  RWIX
+  CPU2TOCMMSGRAM0       20084000   00001000  00000f20  000000e0  RWIX
+  CMTOCPU2MSGRAM0       20086000   00001000  00000f20  000000e0  RWIX
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00200000    00200000    00000006   00000006    r-x
+  00200000    00200000    00000006   00000006    r-x .resetisr
+00200180    00200180    0000027a   0000027a    r-x
+  00200180    00200180    0000027a   0000027a    r-x .text.1
+00200400    00200400    00000360   00000360    r-x
+  00200400    00200400    00000140   00000140    r-- .vftable
+  00200540    00200540    0000017a   0000017a    r-x .text.2
+  002006bc    002006bc    00000088   00000088    r-- .const
+  00200748    00200748    00000018   00000018    r-- .cinit
+1fffc000    1fffc000    00000200   00000000    rw-
+  1fffc000    1fffc000    00000200   00000000    rw- .stack
+1fffe000    00200008    00000172   00000172    r-x
+  1fffe000    00200008    00000172   00000172    r-x .TI.ramfunc
+2000c000    2000c000    00000014   00000000    rw-
+  2000c000    2000c000    00000014   00000000    rw- .data
+20080000    20080000    00000f20   00000000    rw-
+  20080000    20080000    00000f20   00000000    rw- MSGRAM_CPU1_TO_CM
+20082000    20082000    00000f20   00000000    rw-
+  20082000    20082000    00000f20   00000000    rw- MSGRAM_CM_TO_CPU1
+20084000    20084000    00000f20   00000000    rw-
+  20084000    20084000    00000f20   00000000    rw- MSGRAM_CPU2_TO_CM
+20086000    20086000    00000f20   00000000    rw-
+  20086000    20086000    00000f20   00000000    rw- MSGRAM_CM_TO_CPU2
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.resetisr 
+*          0    00200000    00000006     
+                  00200000    00000006     startup_cm.obj (.resetisr:resetISR)
+
+.TI.ramfunc 
+*          0    00200008    00000172     RUN ADDR = 1fffe000
+                  00200008    00000070     driverlib_cm.lib : flash.obj (.TI.ramfunc:Flash_initModule)
+                  00200078    00000008                      : flash.obj (.tramp.Flash_unlockCtrlRegisters.1)
+                  00200080    00000008                      : flash.obj (.tramp.Flash_unlockECCRegisters.1)
+                  00200088    00000030                      : flash.obj (.TI.ramfunc:Flash_setBankPowerMode)
+                  002000b8    00000022                      : flash.obj (.TI.ramfunc:Flash_setWaitstates)
+                  002000da    00000020                      : flash.obj (.TI.ramfunc:Flash_setPumpPowerMode)
+                  002000fa    0000001a                      : flash.obj (.TI.ramfunc:Flash_enableECC)
+                  00200114    00000018                      : flash.obj (.TI.ramfunc:Flash_disableDataCache)
+                  0020012c    00000018                      : flash.obj (.TI.ramfunc:Flash_disableProgramCache)
+                  00200144    00000018                      : flash.obj (.TI.ramfunc:Flash_enableDataCache)
+                  0020015c    00000018                      : flash.obj (.TI.ramfunc:Flash_enableProgramCache)
+                  00200174    00000006                      : sysctl.obj (.TI.ramfunc)
+
+.vftable   0    00200400    00000140     
+                  00200400    00000140     startup_cm.obj (.vftable:retain)
+
+.cinit     0    00200748    00000018     
+                  00200748    00000008     (.cinit..data.load) [load image, compression = lzss]
+                  00200750    00000008     (__TI_handler_table)
+                  00200758    00000008     (__TI_cinit_table)
+
+.stack     0    1fffc000    00000200     UNINITIALIZED
+                  1fffc000    00000004     rtsv7M4_T_le_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  1fffc004    000001fc     --HOLE--
+
+.data      0    2000c000    00000014     UNINITIALIZED
+                  2000c000    00000014     mainCM.obj (.data:$O1$$)
+
+MSGRAM_CPU1_TO_CM 
+*          0    20080000    00000f20     UNINITIALIZED
+                  20080000    00000e10     mainCM.obj (MSGRAM_CPU1_TO_CM)
+                  20080e10    00000110     driverlib_cm.lib : ipc.obj (MSGRAM_CPU1_TO_CM)
+
+MSGRAM_CM_TO_CPU1 
+*          0    20082000    00000f20     UNINITIALIZED
+                  20082000    00000e10     mainCM.obj (MSGRAM_CM_TO_CPU1)
+                  20082e10    00000110     driverlib_cm.lib : ipc.obj (MSGRAM_CM_TO_CPU1)
+
+MSGRAM_CPU2_TO_CM 
+*          0    20084000    00000f20     UNINITIALIZED
+                  20084000    00000e10     mainCM.obj (MSGRAM_CPU2_TO_CM)
+                  20084e10    00000110     driverlib_cm.lib : ipc.obj (MSGRAM_CPU2_TO_CM)
+
+MSGRAM_CM_TO_CPU2 
+*          0    20086000    00000f20     UNINITIALIZED
+                  20086000    00000e10     mainCM.obj (MSGRAM_CM_TO_CPU2)
+                  20086e10    00000110     driverlib_cm.lib : ipc.obj (MSGRAM_CM_TO_CPU2)
+
+__llvm_prf_cnts 
+*          0    2000c000    00000000     UNINITIALIZED
+
+.text.1    0    00200180    0000027a     
+                  00200180    0000011a     mainCM.obj (.text:main)
+                  0020029a    00000002     --HOLE-- [fill = 0]
+                  0020029c    00000008     driverlib_cm.lib : sysctl.obj (.tramp.SysCtl_delay.1)
+                  002002a4    00000004     rtsv7M4_T_le_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  002002a8    000000c8     cm.obj (.text:CM_init)
+                  00200370    00000008     driverlib_cm.lib : flash.obj (.tramp.Flash_initModule.1)
+                  00200378    00000068     rtsv7M4_T_le_eabi.lib : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  002003e0    00000014     driverlib_cm.lib : flash.obj (.text:Flash_unlockCtrlRegisters)
+                  002003f4    00000004     rtsv7M4_T_le_eabi.lib : exit.c.obj (.text:abort:abort)
+                  002003f8    00000002     startup_cm.obj (.text:defaultISR)
+
+.text.2    0    00200540    0000017a     
+                  00200540    0000009c     rtsv7M4_T_le_eabi.lib : memcpy_t2.asm.obj (.text)
+                  002005dc    00000048     driverlib_cm.lib : sysctl.obj (.text:SysCtl_enablePeripheral)
+                  00200624    00000044     rtsv7M4_T_le_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  00200668    00000024                           : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  0020068c    00000012     driverlib_cm.lib : flash.obj (.text:Flash_unlockECCRegisters)
+                  0020069e    0000000e     rtsv7M4_T_le_eabi.lib : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  002006ac    00000004     --HOLE-- [fill = 0]
+                  002006b0    00000002     startup_cm.obj (.text:faultISR)
+                  002006b2    00000006     --HOLE-- [fill = 0]
+                  002006b8    00000002     startup_cm.obj (.text:nmiISR)
+
+.const     0    002006bc    00000088     
+                  002006bc    00000088     driverlib_cm.lib : ipc.obj (.const:IPC_Instance)
+
+MODULE SUMMARY
+
+       Module                       code   ro data   rw data
+       ------                       ----   -------   -------
+    .\
+       mainCM.obj                   282    0         14420  
+       startup_cm.obj               12     320       0      
+    +--+----------------------------+------+---------+---------+
+       Total:                       294    320       14420  
+                                                            
+    .\device\
+       cm.obj                       200    0         0      
+    +--+----------------------------+------+---------+---------+
+       Total:                       200    0         0      
+                                                            
+    C:/ti/c2000/C2000Ware_4_00_00_00/driverlib/f2838x/driverlib_cm/ccs/Debug/driverlib_cm.lib
+       ipc.obj                      0      136       1088   
+       flash.obj                    774    0         0      
+       sysctl.obj                   92     0         0      
+    +--+----------------------------+------+---------+---------+
+       Total:                       866    136       1088   
+                                                            
+    C:\ti\ccs1100\ccs\tools\compiler\ti-cgt-arm_20.2.5.LTS\lib\rtsv7M4_T_le_eabi.lib
+       memcpy_t2.asm.obj            156    0         0      
+       copy_decompress_lzss.c.obj   104    0         0      
+       autoinit.c.obj               68     0         0      
+       boot_cortex_m.c.obj          36     0         0      
+       copy_decompress_none.c.obj   14     0         0      
+       exit.c.obj                   4      0         0      
+       pre_init.c.obj               4      0         0      
+    +--+----------------------------+------+---------+---------+
+       Total:                       386    0         0      
+                                                            
+       Stack:                       0      0         512    
+       Linker Generated:            0      24        0      
+    +--+----------------------------+------+---------+---------+
+       Grand Total:                 1746   480       16020  
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00200758 records: 1, size/record: 8, table size: 8
+	.data: load addr=00200748, load size=00000008 bytes, run addr=2000c000, run size=00000014 bytes, compression=lzss
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00200750 records: 2, size/record: 4, table size: 8
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+
+
+FAR CALL TRAMPOLINES
+
+callee name               trampoline name
+   callee addr  tramp addr   call addr  call info
+--------------  -----------  ---------  ----------------
+SysCtl_delay              $Tramp$TT$L$PI$$SysCtl_delay
+   1fffe16d     0020029c     0020020e   mainCM.obj (.text:main)
+                             0020025c   mainCM.obj (.text:main)
+Flash_initModule          $Tramp$TT$L$PI$$Flash_initModule
+   1fffe001     00200370     002002e6   cm.obj (.text:CM_init)
+Flash_unlockCtrlRegisters  $Tramp$TT$L$PI$$Flash_unlockCtrlRegisters
+   002003e1     1fffe070     1fffe010   driverlib_cm.lib : flash.obj (.TI.ramfunc:Flash_initModule)
+Flash_unlockECCRegisters  $Tramp$TT$L$PI$$Flash_unlockECCRegisters
+   0020068d     1fffe078     1fffe016   driverlib_cm.lib : flash.obj (.TI.ramfunc:Flash_initModule)
+
+[4 trampolines]
+[5 trampoline calls]
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                          
+-------   ----                          
+002003f5  C$$EXIT                       
+002002a9  CM_init                       
+1fffe001  Flash_initModule              
+20080e10  IPC_CM_To_CPU1_GetBuffer      
+20082e10  IPC_CM_To_CPU1_PutBuffer      
+20084e10  IPC_CM_To_CPU2_GetBuffer      
+20086e10  IPC_CM_To_CPU2_PutBuffer      
+002006bc  IPC_Instance                  
+0020017a  RamfuncsLoadEnd               
+00000172  RamfuncsLoadSize              
+00200008  RamfuncsLoadStart             
+1fffe172  RamfuncsRunEnd                
+00000172  RamfuncsRunSize               
+1fffe000  RamfuncsRunStart              
+1fffe16d  SysCtl_delay                  
+002005dd  SysCtl_enablePeripheral       
+1fffc200  __STACK_END                   
+00000200  __STACK_SIZE                  
+00200758  __TI_CINIT_Base               
+00200760  __TI_CINIT_Limit              
+00200750  __TI_Handler_Table_Base       
+00200758  __TI_Handler_Table_Limit      
+00200625  __TI_auto_init_nobinit_nopinit
+00200379  __TI_decompress_lzss          
+0020069f  __TI_decompress_none          
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+00200748  __TI_static_base__            
+00200541  __aeabi_memcpy                
+00200541  __aeabi_memcpy4               
+00200541  __aeabi_memcpy8               
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+UNDEFED   __mpu_init                    
+1fffc000  __stack                       
+2000c000  __start___llvm_prf_cnts       
+2000c000  __stop___llvm_prf_cnts        
+00200669  _c_int00_noargs               
+UNDEFED   _system_post_cinit            
+002002a5  _system_pre_init              
+002003f5  abort                         
+ffffffff  binit                         
+00200181  main                          
+00200541  memcpy                        
+2000c000  u16TstSRam_CMReadC1           
+20080000  u16rCMrwCPU1                  
+20084000  u16rCMrwCPU2                  
+20082000  u16rwCMrCPU1                  
+20086000  u16rwCMrCPU2                  
+00200400  vectorTableFlash              
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                          
+-------   ----                          
+00000172  RamfuncsLoadSize              
+00000172  RamfuncsRunSize               
+00000200  __STACK_SIZE                  
+00200008  RamfuncsLoadStart             
+0020017a  RamfuncsLoadEnd               
+00200181  main                          
+002002a5  _system_pre_init              
+002002a9  CM_init                       
+00200379  __TI_decompress_lzss          
+002003f5  C$$EXIT                       
+002003f5  abort                         
+00200400  vectorTableFlash              
+00200541  __aeabi_memcpy                
+00200541  __aeabi_memcpy4               
+00200541  __aeabi_memcpy8               
+00200541  memcpy                        
+002005dd  SysCtl_enablePeripheral       
+00200625  __TI_auto_init_nobinit_nopinit
+00200669  _c_int00_noargs               
+0020069f  __TI_decompress_none          
+002006bc  IPC_Instance                  
+00200748  __TI_static_base__            
+00200750  __TI_Handler_Table_Base       
+00200758  __TI_CINIT_Base               
+00200758  __TI_Handler_Table_Limit      
+00200760  __TI_CINIT_Limit              
+1fffc000  __stack                       
+1fffc200  __STACK_END                   
+1fffe000  RamfuncsRunStart              
+1fffe001  Flash_initModule              
+1fffe16d  SysCtl_delay                  
+1fffe172  RamfuncsRunEnd                
+2000c000  __start___llvm_prf_cnts       
+2000c000  __stop___llvm_prf_cnts        
+2000c000  u16TstSRam_CMReadC1           
+20080000  u16rCMrwCPU1                  
+20080e10  IPC_CM_To_CPU1_GetBuffer      
+20082000  u16rwCMrCPU1                  
+20082e10  IPC_CM_To_CPU1_PutBuffer      
+20084000  u16rCMrwCPU2                  
+20084e10  IPC_CM_To_CPU2_GetBuffer      
+20086000  u16rwCMrCPU2                  
+20086e10  IPC_CM_To_CPU2_PutBuffer      
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+ffffffff  binit                         
+UNDEFED   __mpu_init                    
+UNDEFED   _system_post_cinit            
+
+[51 symbols]

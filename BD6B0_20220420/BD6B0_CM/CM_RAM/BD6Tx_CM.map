@@ -1,0 +1,195 @@
+******************************************************************************
+                  TI ARM Linker PC v20.2.5                     
+******************************************************************************
+>> Linked Wed Dec 22 17:04:38 2021
+
+OUTPUT FILE NAME:   <BD6Tx_CM.out>
+ENTRY POINT SYMBOL: "_c_int00_noinit_noargs"  address: 20000985
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  CMBANK0_SECTOR0       00200000   00004000  00000000  00004000  RWIX
+  CMBANK0_SECTOR1       00204000   00004000  00000000  00004000  RWIX
+  CMBANK0_SECTOR2       00208000   00004000  00000000  00004000  RWIX
+  CMBANK0_SECTOR3       0020c000   00004000  00000000  00004000  RWIX
+  CMBANK0_SECTOR4       00210000   00010000  00000000  00010000  RWIX
+  CMBANK0_SECTOR5       00220000   00010000  00000000  00010000  RWIX
+  CMBANK0_SECTOR6       00230000   00010000  00000000  00010000  RWIX
+  CMBANK0_SECTOR7       00240000   00010000  00000000  00010000  RWIX
+  CMBANK0_SECTOR8       00250000   00010000  00000000  00010000  RWIX
+  CMBANK0_SECTOR9       00260000   00010000  00000000  00010000  RWIX
+  CMBANK0_SECTOR10      00270000   00004000  00000000  00004000  RWIX
+  CMBANK0_SECTOR11      00274000   00004000  00000000  00004000  RWIX
+  CMBANK0_SECTOR12      00278000   00004000  00000000  00004000  RWIX
+  CMBANK0_SECTOR13      0027c000   00004000  00000000  00004000  RWIX
+  C1RAM                 1fffc000   00002000  00000200  00001e00  RWIX
+  C0RAM                 1fffe000   00002000  00000006  00001ffa  RWIX
+  BOOT_RSVD             20000000   00000800  00000000  00000800  RWIX
+  S0RAM_RESETISR        20000800   00000008  00000006  00000002  RWIX
+  S0RAM                 20000808   000037f8  0000034c  000034ac  RWIX
+  S1RAM                 20004000   00004000  00000000  00004000  RWIX
+  S2RAM                 20008000   00004000  00000000  00004000  RWIX
+  S3RAM                 2000c000   00004000  00000000  00004000  RWIX
+  E0RAM                 20010000   00004000  00000000  00004000  RWIX
+  CPU1TOCMMSGRAM0       20080000   00000800  00000000  00000800  RWIX
+  CPU1TOCMMSGRAM1       20080800   00000800  00000000  00000800  RWIX
+  CMTOCPU1MSGRAM0       20082000   00000800  00000000  00000800  RWIX
+  CMTOCPU1MSGRAM1       20082800   00000800  00000000  00000800  RWIX
+  CPU2TOCMMSGRAM0       20084000   00000800  00000000  00000800  RWIX
+  CPU2TOCMMSGRAM1       20084800   00000800  00000000  00000800  RWIX
+  CMTOCPU2MSGRAM0       20086000   00000800  00000000  00000800  RWIX
+  CMTOCPU2MSGRAM1       20086800   00000800  00000000  00000800  RWIX
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+1fffc000    1fffc000    00000200   00000000    rw-
+  1fffc000    1fffc000    00000200   00000000    rw- .stack
+1fffe000    1fffe000    00000006   00000006    r-x
+  1fffe000    1fffe000    00000006   00000006    r-x .TI.ramfunc
+20000800    20000800    00000214   00000214    r-x
+  20000800    20000800    00000006   00000006    r-x .resetisr
+  20000808    20000808    0000020c   0000020c    r-x .text
+20000c00    20000c00    00000140   00000140    r--
+  20000c00    20000c00    00000140   00000140    r-- .vtable
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.TI.ramfunc 
+*          0    1fffe000    00000006     
+                  1fffe000    00000006     driverlib_cm.lib : sysctl.obj (.TI.ramfunc)
+
+.resetisr 
+*          0    20000800    00000006     
+                  20000800    00000006     startup_cm.obj (.resetisr:resetISR)
+
+.vtable    0    20000c00    00000140     
+                  20000c00    00000140     startup_cm.obj (.vtable:retain)
+
+.cinit     0    1fffe000    00000000     UNINITIALIZED
+
+.stack     0    1fffc000    00000200     UNINITIALIZED
+                  1fffc000    00000004     rtsv7M4_T_le_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  1fffc004    000001fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    2000c000    00000000     UNINITIALIZED
+
+.text      0    20000808    0000020c     
+                  20000808    00000094     mainCM.obj (.text:GPIO_writePin)
+                  2000089c    00000076     cm.obj (.text:CM_enableAllPeripherals)
+                  20000912    00000002     startup_cm.obj (.text:defaultISR)
+                  20000914    00000048     driverlib_cm.lib : sysctl.obj (.text:SysCtl_enablePeripheral)
+                  2000095c    00000028     mainCM.obj (.text:main)
+                  20000984    00000020     rtsv7M4_T_le_eabi.lib : boot_cortex_m.c.obj (.text:_c_int00_noinit_noargs:_c_int00_noinit_noargs)
+                  200009a4    0000001a     mainCM.obj (.text:GPIO_isPinValid)
+                  200009be    00000002     startup_cm.obj (.text:faultISR)
+                  200009c0    00000018     cm.obj (.text:CM_init)
+                  200009d8    00000014     cm.obj (.text:Interrupt_setVectorTableOffset)
+                  200009ec    00000010     cm.obj (.text:SysCtl_disableWatchdog)
+                  200009fc    0000000e     cm.obj (.text:__error__)
+                  20000a0a    00000004     rtsv7M4_T_le_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  20000a0e    00000004                           : exit.c.obj (.text:abort:abort)
+                  20000a12    00000002     startup_cm.obj (.text:nmiISR)
+
+MODULE SUMMARY
+
+       Module                code   ro data   rw data
+       ------                ----   -------   -------
+    .\
+       startup_cm.obj        12     320       0      
+       mainCM.obj            214    0         0      
+    +--+---------------------+------+---------+---------+
+       Total:                226    320       0      
+                                                     
+    .\device\
+       cm.obj                192    0         0      
+    +--+---------------------+------+---------+---------+
+       Total:                192    0         0      
+                                                     
+    C:/ti/c2000/C2000Ware_4_00_00_00/driverlib/f2838x/driverlib_cm/ccs/Debug/driverlib_cm.lib
+       sysctl.obj            78     0         0      
+    +--+---------------------+------+---------+---------+
+       Total:                78     0         0      
+                                                     
+    C:\ti\ccs1100\ccs\tools\compiler\ti-cgt-arm_20.2.5.LTS\lib\rtsv7M4_T_le_eabi.lib
+       boot_cortex_m.c.obj   32     0         0      
+       exit.c.obj            4      0         0      
+       pre_init.c.obj        4      0         0      
+    +--+---------------------+------+---------+---------+
+       Total:                40     0         0      
+                                                     
+       Stack:                0      0         512    
+    +--+---------------------+------+---------+---------+
+       Grand Total:          536    320       512    
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                   
+-------   ----                   
+20000a0f  C$$EXIT                
+2000089d  CM_enableAllPeripherals
+200009c1  CM_init                
+1fffe001  SysCtl_delay           
+20000915  SysCtl_enablePeripheral
+1fffc200  __STACK_END            
+00000200  __STACK_SIZE           
+ffffffff  __TI_pprof_out_hndl    
+ffffffff  __TI_prof_data_size    
+ffffffff  __TI_prof_data_start   
+1fffc000  __TI_static_base__     
+ffffffff  __binit__              
+ffffffff  __c_args__             
+200009fd  __error__              
+UNDEFED   __mpu_init             
+1fffc000  __stack                
+2000c000  __start___llvm_prf_cnts
+2000c000  __stop___llvm_prf_cnts 
+20000985  _c_int00_noinit_noargs 
+20000a0b  _system_pre_init       
+20000a0f  abort                  
+ffffffff  binit                  
+2000095d  main                   
+20000c00  vectorTableRAM         
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                   
+-------   ----                   
+00000200  __STACK_SIZE           
+1fffc000  __TI_static_base__     
+1fffc000  __stack                
+1fffc200  __STACK_END            
+1fffe001  SysCtl_delay           
+2000089d  CM_enableAllPeripherals
+20000915  SysCtl_enablePeripheral
+2000095d  main                   
+20000985  _c_int00_noinit_noargs 
+200009c1  CM_init                
+200009fd  __error__              
+20000a0b  _system_pre_init       
+20000a0f  C$$EXIT                
+20000a0f  abort                  
+20000c00  vectorTableRAM         
+2000c000  __start___llvm_prf_cnts
+2000c000  __stop___llvm_prf_cnts 
+ffffffff  __TI_pprof_out_hndl    
+ffffffff  __TI_prof_data_size    
+ffffffff  __TI_prof_data_start   
+ffffffff  __binit__              
+ffffffff  __c_args__             
+ffffffff  binit                  
+UNDEFED   __mpu_init             
+
+[24 symbols]

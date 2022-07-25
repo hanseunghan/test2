@@ -1,0 +1,85 @@
+4.  2022.01.07
+
+    1)  DI Filter 
+        - di_filter.c, di_filter.h
+
+
+3.  2022.01.06
+
+    1)  CPU1 & 2 에 있는 모든 MSGRAM 은 동일함.
+    
+        CPU1TOCPU2RAM    : origin = 0x03A000, length = 0x000800
+        - 2048 WORDs
+        - 0x3A000 ~ 0x3A087(:  136 Words) IPC_CPU1_To_CPU2_PutBuffer
+        - 0x3A088 ~ 0x3A7FF(: 1912 Words) 사용가능 데이터 영역.
+        
+    2)  CM 에 있는 모든 MSGRAM 은 동일함.
+    
+        CMTOCPU1MSGRAM0  : origin = 0x20082000, length = 0x00000800
+        - 2048 BYTEs
+        - 0x20082000 ~ 0x2008210F(:  272 BYTEs) IPC_CM_To_CPU1_PutBuffer
+        - 0x20082110 ~ 0x200827FF(: 1776 BYTEs) 사용가능 데이터 영역.
+
+    3)  위 1),2)항목은 cm쪽의 ram 을 하나로 묶어서 해결함.
+    4)  위 3) 처럼했을 때, 전체 ram은 1800words 며 전체를 아래와 같이 연산하면 연산시간은 아래와 같음.
+        - memset(u16rwCPU1rCPU2, 0, sizeof(u16rwCPU1rCPU2));  //about 13us
+        - memcpy(u16rwCPU1rCPU2, u16rCPU1rwCPU2, sizeof(u16rwCPU1rCPU2));  //about 9us
+
+
+2.  2022.01.04
+    1) IPC_8  -> SYNC CPU1 & CPU2
+    2) IPC_9  -> SYNC CPU1 & CM
+    3) IPC_10 -> SYNC CPU2 & CM
+    
+    4) IPC_11 -> SHARE RAM CPU1 TO CPU2     
+    5) IPC_12 -> SHARE RAM CPU2 TO CPU1
+    
+    6) IPC_13 -> SHARE RAM CPU1 TO CM     
+    7) IPC_14 -> SHARE RAM CM TO CPU1
+    
+    6) IPC_15 -> SHARE RAM CPU2 TO CM
+    7) IPC_16 -> SHARE RAM CM TO CPU2
+
+1.  2021.12.30
+    1) CPU1, 2 Sync 함수 보완할 것.[완료]
+    2) CPU1 to CPU2 & CPU2 to CPU1 Shared RAM 확인할 것.[완료]
+    3) CM to CPU1 & CM to CPU2 Shared RAM 확인할 것.[완료]
+
+//1. STEP1
+    //[CPU1 task 후반부 코딩]
+    //  //If there is no pending flag
+    //  if(IPC_isFlagBusyLtoR(IPC_CPU1_L_CPU2_R, IPC_FLAG10) == 0) {
+    //      writeDataCPU1();
+    //      IPC_setFlagLtoR(IPC_CPU1_L_CPU2_R, IPC_FLAG10);
+    //  }
+
+    //[CPU2 task 전반부 코딩]
+    //  if(IPC_isFlagBusyRtoL(IPC_CPU1_L_CPU2_R, IPC_FLAG10) == 1)
+    //  {
+    //      //Read cpu2RArray and modify cpu2RWArray
+    //      writeDataCPU2();
+    //      IPC_ackFlagRtoL(IPC_CPU1_L_CPU2_R, IPC_FLAG10);
+    //  }
+
+//구현 관련
+//IPC0 ~ 7 은 interrupt 관련 IPC 임.
+//IPC8을 FLAG로 사용하여 해볼 것.
+
+//2. STEP2
+    //[CPU2 task 후반부 코딩]
+    //  //If there is no pending flag
+    //  if(IPC_isFlagBusyLtoR(IPC_CPU2_L_CPU1_R, IPC_FLAG10) == 0) {
+    //      writeDataCPU2();
+    //      IPC_setFlagLtoR(IPC_CPU2_L_CPU1_R, IPC_FLAG10);
+    //  }
+
+    //[CPU1 task 전반부 코딩]
+    //  if(IPC_isFlagBusyRtoL(IPC_CPU2_L_CPU1_R, IPC_FLAG10) == 1)
+    //  {
+    //      //Read cpu2RArray and modify cpu2RWArray
+    //      writeDataCPU1();
+    //      IPC_ackFlagRtoL(IPC_CPU2_L_CPU1_R, IPC_FLAG10);
+    //  }
+
+//구현 관련
+//각 IPC 를 사용해도 되는가? 확인할 것.
